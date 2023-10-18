@@ -12,7 +12,7 @@ module "vpc" {
   source = "../vpc_module" # Path to the directory containing the vpc_module
 }
 resource "aws_security_group" "rails_security_group" {
-  vpc_id = aws_vpc.terraform_vpc.id
+  vpc_id = var.vpc_id
 
   egress {
     from_port   = 0
@@ -56,7 +56,7 @@ resource "aws_instance" "rails_instance" {
   key_name      = "Test"                  # Replace with your SSH key pair name
 
   vpc_security_group_ids = [aws_security_group.rails_security_group.id]
-  subnet_id              = aws_subnet.subnets[0].id # Choose one of the subnets
+  subnet_id              = element(var.subnets, 0) # Choose one of the subnets
 
   root_block_device {
     volume_size           = 20    # Size of the root volume in GB
