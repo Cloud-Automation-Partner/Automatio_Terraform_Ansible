@@ -17,6 +17,7 @@ crash.*.log
 *.tfvars.json
 main-only.bak
 terraformstructure.tf
+backup.main.tf.bak
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
 override.tf
