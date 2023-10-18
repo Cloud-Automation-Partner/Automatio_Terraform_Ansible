@@ -34,7 +34,7 @@ This README provides comprehensive documentation for an Infrastructure as Code (
 Before you begin, ensure you have the following prerequisites in place:
 
 - AWS account with necessary access and secret keys.
-- Terraform installed on your local machine.
+- Terraform installed on your local machine, If not get [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) installed.
 - Ansible installed on your local machine.
 - Basic knowledge of Terraform, Ansible, AWS, Docker, Rails, and Vue.js.
 
