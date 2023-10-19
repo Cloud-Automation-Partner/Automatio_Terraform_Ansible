@@ -19,6 +19,6 @@
         name: docker
         state: started
         enabled: yes
-   - name: Log in to Docker Hub
-      shell: |
-        docker login -u "{{ docker_hub_username }}" -p "{{ docker_hub_password }}"
+          #   - name: Log in to Docker Hub
+          #      shell: |
+          #        docker login -u "{{ docker_hub_username }}" -p "{{ docker_hub_password }}"
