@@ -8,9 +8,9 @@ terraform {
 
   required_version = ">= 1.2.0"
 }
-module "vpc" {
-  source = "../vpc_module" # Path to the directory containing the vpc_module
-}
+#module "vpc" {
+#  source = "../vpc_module" # Path to the directory containing the vpc_module
+#}
 resource "aws_security_group" "rails_security_group" {
   vpc_id = var.vpc_id
 
