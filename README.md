@@ -5,6 +5,8 @@
 This README provides comprehensive documentation for an Infrastructure as Code (IAC) project that leverages Terraform and Ansible to create, configure, and deploy an AWS infrastructure, including a Virtual Private Cloud (VPC) and EC2 instances. Additionally, it details the process of migrating an existing Rails and Vue.js application running on a simple server to the IAC-based infrastructure using Terraform and Ansible, with Docker as the containerization solution.
 
 ## Project Overview
+Current architecture before  transformation
+![image_2023_10_23T12_19_49_613Z](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/c1169a7c-5985-49ef-810c-c9c99d0b66d9)
 
 ### Infrastructure Provisioning
 - **Terraform**: The infrastructure provisioning phase utilizes Terraform to define and create the AWS resources. We automate the creation of a VPC, EC2 instances, and other necessary components.
@@ -34,13 +36,13 @@ This README provides comprehensive documentation for an Infrastructure as Code (
 Before you begin, ensure you have the following prerequisites in place:
 
 - AWS account with necessary access and secret keys.
+- Docker and Docker compose .
 - Terraform installed on your local machine, If not get [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) installed.
 - Ansible installed on your local machine.
 - Basic knowledge of Terraform, Ansible, AWS, Docker, Rails, and Vue.js.
 
 ## Project Structure
-
-Explain the structure of your project, including the directory layout and the purpose of each folder or file.
+In this project, we are embarking on the migration of our Ruby on Rails, Vue.js, Redis, PostgreSQL-based application to AWS. To achieve this, we will employ Terraform to define our infrastructure as code. Configuration management will be handled using Ansible, which will facilitate the installation of Docker Compose and the configuration of the application by pulling it from GitHub
 
 ## Terraform Configuration
 
