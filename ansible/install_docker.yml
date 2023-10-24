@@ -1,6 +1,6 @@
 ---
 - name: Install Docker on EC2
-  hosts: ec2
+  hosts: all
   become: yes
   vars_files:
     - docker_hub_credentials.yml
