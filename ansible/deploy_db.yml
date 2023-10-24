@@ -3,20 +3,23 @@
   hosts: db
   become: yes
   vars:
+    ansible_ssh_private_key_file: /root/Test.pem
+    ansible_user: ec2-user
     docker_compose_file: /root/docker-compose-db.yml
 
   tasks:
     - name: Copy Docker Compose file for the database
+      become: yes
       copy:
         src: /root/docker-compose-db.yml
         dest: "{{ docker_compose_file }}"
         owner: root
         group: root
-        become: yes
+        
     
     - name: Copy .env file
       copy:
-        src: /timebot-be/.env
+        src: /root/.env
         dest: /root/.env
         owner: root
         group: root
