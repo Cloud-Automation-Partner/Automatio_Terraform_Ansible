@@ -91,3 +91,4 @@ Information on how to contribute to this project or report issues.
 Specify the project's license and any terms and conditions.
 
 Feel free to expand on each section with detailed explanations, code examples, and any other relevant information to make your documentation comprehensive and user-friendly. Remember to keep your README.md up to date as your project evolves.
+![Final Diagram](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/f06a9145-865d-4085-9acd-e1e54d125471)
