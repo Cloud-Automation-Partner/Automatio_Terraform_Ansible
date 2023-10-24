@@ -3,7 +3,7 @@
   hosts: app
   become: yes
   vars:
-    docker_compose_file: /timebot-be/docker-compose-app.yml
+    docker_compose_file: /root/docker-compose-app.yml
 
   tasks:
     - name: Copy Docker Compose file for the application
@@ -13,6 +13,13 @@
         owner: ec2-user
         group: ec2-user
         become: yes
+    
+    - name: Copy .env file
+      copy:
+        src: /timebot-be/.env
+        dest: /root/.env
+        owner: root
+        group: root
 
     - name: Run Docker Compose for the application
       command: docker-compose -f "{{ docker_compose_file }}" up -d

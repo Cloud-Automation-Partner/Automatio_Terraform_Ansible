@@ -3,16 +3,23 @@
   hosts: db
   become: yes
   vars:
-    docker_compose_file: /timebot-be/docker-compose-db.yml
+    docker_compose_file: /root/docker-compose-db.yml
 
   tasks:
     - name: Copy Docker Compose file for the database
       copy:
         src: /root/docker-compose-db.yml
         dest: "{{ docker_compose_file }}"
-        owner: db-user
-        group: db-user
+        owner: root
+        group: root
         become: yes
+    
+    - name: Copy .env file
+      copy:
+        src: /timebot-be/.env
+        dest: /root/.env
+        owner: root
+        group: root
 
     - name: Run Docker Compose for the database
       command: docker-compose -f "{{ docker_compose_file }}" up -d
