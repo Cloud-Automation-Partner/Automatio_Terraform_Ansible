@@ -71,6 +71,8 @@ Detail how the Ansible inventory is structured and what hosts it covers.
 ## Deploying the Infrastructure
 
 Step-by-step instructions for deploying the AWS infrastructure using Terraform.
+![image_2023_10_23T12_18_27_969Z](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/208f76f9-b475-4216-b516-b4848945077a)
+
 
 ## Migrating the Application
 
