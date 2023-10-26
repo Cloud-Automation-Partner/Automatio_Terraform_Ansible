@@ -1,0 +1,54 @@
+version: '3.3'
+services:
+
+  redis:
+    image: redis:6.2.6
+    restart: always
+    volumes:
+      - redis_data:/data
+
+  web:
+    image: zahidmahmood1995/timebot-be:web
+    environment:
+      RAILS_ENV: production
+      DB_HOST: db
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      FRONTEND_URL: ${FRONTEND_URL}
+      GMAIL_USERNAME: ${GMAIL_USERNAME}
+      GMAIL_PASSWORD: ${GMAIL_PASSWORD}
+      REDIS_URL: redis://redis:6379/0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+
+  frontend:
+    image: zahidmahmood1995/timebot-be:frontend
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+
+  sidekiq:
+    image: zahidmahmood1995/timebot-be:sidekiq
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    depends_on:
+      - redis
+    environment:
+      SERVICE_NAME: sidekiq
+      RAILS_ENV: production
+      DB_HOST: db
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      SIDEKIQ_USERNAME: ${SIDEKIQ_USERNAME}
+      SIDEKIQ_PASSWORD: ${SIDEKIQ_PASSWORD}
+      SCHEDULE_JOBS: "true"
+      REDIS_URL: redis://redis:6379/0
+
+volumes:
+  db_data:
+  redis_data:
+
