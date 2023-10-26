@@ -65,7 +65,6 @@ Run below Command to configure your AWS account on your local machine
   ...
   
      cp Dockerfile-frontend /path/to/your/frontend/project/Dockerfile
-  
   ...
   
      cp Dockerfile-backend /path/to/your/backend/project/Dockerfile
