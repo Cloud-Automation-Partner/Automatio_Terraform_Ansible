@@ -1,0 +1,59 @@
+version: '3.3'
+services:
+  db:
+    image: postgres:13.4
+    restart: always
+    env_file: .env
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  redis:
+    image: redis:6.2.6
+    restart: always
+    volumes:
+      - ./tmp/redis:/data
+  web:
+    build: .
+    env_file: .env
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/timebot
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      RAILS_ENV: production # for testing on local after building image it will completely emulate the production envirnoment
+      REDIS_URL: redis://redis:6379/0
+  frontend-prod:
+    build:
+      context: ../vue-timebot
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+  sidekiq:
+    build: .
+    env_file: .env
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    volumes:
+      - .:/timebot
+    depends_on:
+      - db
+      - redis
+    environment:
+      SERVICE_NAME: sidekiq
+      DB_HOST: ${DB_HOST}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      SCHEDULE_JOBS: "true"
+      REDIS_URL: redis://redis:6379/0
+      SIDEKIQ_USERNAME: ${SIDEKIQ_USERNAME}
+      SIDEKIQ_PASSWORD: ${SIDEKIQ_PASSWORD}
