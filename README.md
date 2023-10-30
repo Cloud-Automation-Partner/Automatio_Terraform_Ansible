@@ -82,20 +82,19 @@ once done run the below commannd to run the deploy script that will create the i
 Above script will build and create the images for your project and will push these images to your docker-hub account configured earlier
 Once these are done now go back to the terraform directory 
 - ## Terraform:
- After installing the terraform if you want to create a new VPC along with three subnets in different availability zones then follow the below instructions or else skip to the next step
+ After installing the terraform if you want to create a new VPC along with three subnets in different availability zones then follow the below instructions or else skip to the next step.
  
   1- Create VPC  
   
     cd /Automation_Terraform_Ansible/terraform/vpc_module  
-    
     terraform init  
-    
-    terraform fmt  
-    
+    terraform fmt
     terraform validate
     terraform plan #this will show you the architecture that will be created by terraform
-    terraform apply # type "yes" once it shows the architecture 
-Now copy the subnet and vpc details from the output of the terraform apply copmmand
+    terraform apply # type "yes" once it shows the architecture  
+    
+Now copy the subnet and vpc details from the output of the terraform apply copmmand.  
+
   2- Create Two EC2 linux hosts and security group
   cd ../ec2_module
   You can adjust the main.tf to add or remove the required ports in secuirity group creation section
