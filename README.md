@@ -69,12 +69,11 @@ Run below Command to configure your AWS account on your local machine
   
     %acp Dockerfile-backend /path/to/your/backend/project/Dockerfile
   
-```bash
-  
-     cp docker-compose.yml /path/to/your/project/
+```
+cp docker-compose.yml /path/to/your/project/
 ```
   
-```bash
+```
 cp deploy.sh /path/to/your/project/
 ```
   
