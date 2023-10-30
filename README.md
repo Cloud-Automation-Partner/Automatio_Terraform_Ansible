@@ -73,10 +73,7 @@ Run below Command to configure your AWS account on your local machine
   
      cp docker-compose.yml /path/to/your/project/
   
-  ...console
-  
-  cp deploy.sh /path/to/your/project/
-  ...
+  ''' cp deploy.sh /path/to/your/project/ '''
   
 Now modify these docker and docker-compose file according to your project
 once done run the below commannd to run the deploy script that will create the images of your projects and tag them to push in your docker hub repo
