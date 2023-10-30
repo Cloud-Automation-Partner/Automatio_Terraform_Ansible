@@ -107,7 +107,8 @@ Now copy the subnet and vpc details from the output of the terraform apply copmm
     terraform fmt
     terraform validate
     terraform plan #this will show you the architecture that is gonna be created by terraform
-    terraform apply # type "yes" once it shows the architecture 
+    terraform apply # type "yes" once it shows the architecture  
+    
   After running above commands you will see terraform creating the two EC2 linux hosts and a secuirity group with allowed ports
   Now copy the both instances ip's from the output of the previous command and switch to the ansible directory and edit the hosts files
 - ## Ansible:
