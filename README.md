@@ -63,17 +63,17 @@ Run below Command to configure your AWS account on your local machine
    now copy the docker files from this repo to your front-end and back-end projects respectively
 
 ```
-    cp Dockerfile-frontend /path/to/your/frontend/project/Dockerfile
+cp Dockerfile-frontend /path/to/your/frontend/project/Dockerfile
 ```
 ```
-    cp Dockerfile-backend /path/to/your/backend/project/Dockerfile
+cp Dockerfile-backend /path/to/your/backend/project/Dockerfile
 ```  
 ```
-    cp docker-compose.yml /path/to/your/project/
+cp docker-compose.yml /path/to/your/project/
 ```
   
 ```
-    cp deploy.sh /path/to/your/project/
+cp deploy.sh /path/to/your/project/
 ```
   
 Now modify these docker and docker-compose file according to your project
