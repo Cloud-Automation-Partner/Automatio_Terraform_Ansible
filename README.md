@@ -96,10 +96,12 @@ Once these are done now go back to the terraform directory
 Now copy the subnet and vpc details from the output of the terraform apply copmmand.  
 
   2- Create Two EC2 linux hosts and security group
-  cd ../ec2_module
+  cd ../ec2_module.  
+  
   You can adjust the main.tf to add or remove the required ports in secuirity group creation section
   Now add the VPC and subnet details copied from the above output and if you have skipped the above step you can copy and paste the default VPC and default subnet details from your AWS account in variable.tf file in ec2_module folder
-  you can use editors like "nano"  or "vim" to edit the variable. tf file and run below commands
+  you can use editors like "nano"  or "vim" to edit the variable. tf file and run below commands.  
+  
   Note: PLease add the name of your key file from your AWS to the main.tf in my case it is "Test.pem" so it is in file key_name      = "Test" 
     terraform init
     terraform fmt
