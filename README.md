@@ -83,6 +83,7 @@ Above script will build and create the images for your project and will push the
 Once these are done now go back to the terraform directory 
 - ## Terraform:
 - After installing the terraform if you want to create a new VPC along with three subnets in different availability zones then follow the below instructions or else skip to the next step
+- 
   1- Create VPC
     cd /Automation_Terraform_Ansible/terraform/vpc_module
     terraform init
