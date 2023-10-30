@@ -73,7 +73,7 @@ Run below Command to configure your AWS account on your local machine
   
      cp docker-compose.yml /path/to/your/project/
   
-  ...connsole
+  ...console
   
   cp deploy.sh /path/to/your/project/
   ...
