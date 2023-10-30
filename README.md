@@ -102,15 +102,16 @@ Now copy the subnet and vpc details from the output of the terraform apply copmm
   Now add the VPC and subnet details copied from the above output and if you have skipped the above step you can copy and paste the default VPC and default subnet details from your AWS account in variable.tf file in ec2_module folder
   you can use editors like "nano"  or "vim" to edit the variable. tf file and run below commands.  
   
-  Note: PLease add the name of your key file from your AWS to the main.tf in my case it is "Test.pem" so it is in file key_name      = "Test" 
+  Note: PLease add the name of your key file from your AWS to the main.tf in my case it is "Test.pem" so it is in file key_name      = "Test"  
+  
     terraform init
     terraform fmt
     terraform validate
     terraform plan #this will show you the architecture that is gonna be created by terraform
     terraform apply # type "yes" once it shows the architecture  
-    
   After running above commands you will see terraform creating the two EC2 linux hosts and a secuirity group with allowed ports
-  Now copy the both instances ip's from the output of the previous command and switch to the ansible directory and edit the hosts files
+  Now copy the both instances ip's from the output of the previous command and switch to the ansible directory and edit the hosts files.  
+  
 - ## Ansible:
   In this we will configure both hosts respectively
   cd ../../ansible
