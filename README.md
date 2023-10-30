@@ -114,15 +114,18 @@ Now copy the subnet and vpc details from the output of the terraform apply copmm
   
 - ## Ansible:
   In this we will configure both hosts respectively
-  cd ../../ansible
-  vim hosts #Add the both IP's in the respective fields the one for DB-Instance and other for App instance
-Once Ansible is Installed and IP's are added follow the below steps
+  cd ../../ansible vim hosts.
+  #Add the both IP's in the respective fields the one for DB-Instance and other for App instance
+Once Ansible is Installed and IP's are added follow the below steps.
+
 Note: Add the key file location of your SSH key file in install_docker.yml file
 create Ansible vault for docker hub credentials and add the docker hub creddentials in it
-  ansible-vault create docker_hub_credentials.yml
+  ansible-vault create docker_hub_credentials.yml.  
+  
 Now when you have added the IP's in the hosts file and added docker-hub credentials in it let's run the playbooks now
   ansible-playbook install_docker.yml --ask-vault-pass -i hosts
-Now you will see that serveral plays are being running and these will install docker and docker-compose in both servers and other services both the servers
+Now you will see that serveral plays are being running and these will install docker and docker-compose in both servers and other services both the servers.  
+
 Configure the app server to fetch and run the application
   ansible-playbook deploy_app.yml --ask-vault-pass -i hosts
 And for DB run the below
