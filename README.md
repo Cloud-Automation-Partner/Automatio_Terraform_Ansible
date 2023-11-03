@@ -1,177 +1,169 @@
-# AWS Infrastructure Provisioning and Application Deployment with Terraform and Ansible
+# AWS Infrastructure Provisioning and Deployment with Terraform and Ansible
 
 ## Introduction
 
-This README provides comprehensive documentation for an Infrastructure as Code (IAC) project that leverages Terraform and Ansible to create, configure, and deploy an AWS infrastructure, including a Virtual Private Cloud (VPC) and EC2 instances. Additionally, it details the process of migrating an existing Rails and Vue.js application running on a simple server to the IAC-based infrastructure using Terraform and Ansible, with Docker as the containerization solution.
+This README serves as a comprehensive guide for an Infrastructure as Code (IAC) project that leverages the power of Terraform and Ansible. The project focuses on establishing an AWS infrastructure encompassing a VPC and EC2 instances and detailing the migration of a Rails and Vue.js application from a traditional server setup to a containerized environment managed by Docker.
 
-## Project Overview
-Current architecture before transformation   
+### Current Architecture Before Transformation
 
-   ![image_2023_10_23T12_19_49_613Z](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/c1169a7c-5985-49ef-810c-c9c99d0b66d9)
+![Current Architecture](assets/148323748/c1169a7c-5985-49ef-810c-c9c99d0b66d9)
 
+## Infrastructure Provisioning
 
-### Infrastructure Provisioning
-- **Terraform**: The infrastructure provisioning phase utilizes Terraform to define and create the AWS resources. We automate the creation of a VPC, EC2 instances, and other necessary components.
+**Terraform** is used to automate the creation of the AWS resources, including a VPC, EC2 instances, and additional necessary components.
 
-### AWS Infrastructure:  
+### AWS Infrastructure to be created:
 
-Below Infratructure will be created in the AWS using the Terraform  
+![Final AWS Diagram](assets/148323748/f06a9145-865d-4085-9acd-e1e54d125471)
 
-![Final Diagram](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/f06a9145-865d-4085-9acd-e1e54d125471)
+## Application Deployment
 
-### Application Deployment
-- **Ansible**: Ansible is employed to configure the Linux servers within the EC2 instances, ensuring that Docker is installed and set up correctly. It is also responsible for deploying and managing the Rails and Vue.js-based application within Docker containers.
+**Ansible** handles the configuration of Linux servers on the EC2 instances, installing Docker, and managing the deployment of the Rails and Vue.js applications within Docker containers.
 
-### Application Containerization
-- **Docker**:
-## Table of Contents
+## Application Containerization
 
-1. [Prerequisites](#prerequisites)
-2. [Project Structure](#project-structure)
-3. [Terraform Configuration](#terraform-configuration) 
-4. [Ansible Configuration](#ansible-configuration)
-5. [Deploying the Infrastructure](#deploying-the-infrastructure)
-6. [Migrating the Application](#migrating-the-application)
-7. [Running the Application](#running-the-application)
-8. [Troubleshooting](#troubleshooting)
-9. [Contributing](#contributing)
-10. [License](#license)
+**Docker** encapsulates the application, ensuring consistency across various environments and simplifying the deployment process.
 
 ## Prerequisites
 
-Before you begin, ensure you have the following prerequisites in place:
+To proceed with this project, you should have:
 
-- AWS account with necessary access and secret keys.
-- Docker and Docker compose installed and Docker Hub account.
-- GitHub account.
-- Terraform installed on your local machine, If not get [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) installed.
-- Ansible installed on your local machine.
-- Basic knowledge of Terraform, Ansible, AWS, Docker, Rails, and Vue.js.
+- An AWS account with the appropriate access
+- Docker and Docker Compose installed, along with a Docker Hub account
+- A GitHub account for source control management
+- Terraform installed on your local machine ([Installation Guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli))
+- Ansible installed on your local machine
+- Familiarity with Terraform, Ansible, AWS, Docker, Rails, and Vue.js
 
 ## Project Structure
-In this project, we are embarking on the migration of our Ruby on Rails, Vue.js, Redis, PostgreSQL-based application to AWS. To achieve this, we will employ Terraform to define our infrastructure as code. Configuration management will be handled using Ansible, which will facilitate the installation of Docker Compose and the configuration of the application by pulling it from GitHub
-![image_2023_10_23T12_18_27_969Z](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/208f76f9-b475-4216-b516-b4848945077a)  
 
-Start with:
+We will migrate a Rails, Vue.js, Redis, and PostgreSQL application to AWS, using Terraform for infrastructure definition and Ansible for configuration management. Docker Compose will be used to set up and configure the application.
 
-- ## Docker Hub account:
-Add your docker hub account to use this in future if not create a new
-  
-```
+![Project Structure](assets/148323748/208f76f9-b475-4216-b516-b4848945077a)
+
+### Getting Started
+
+#### Docker Hub Account
+
+Ensure your Docker Hub account is ready. Login with:
+
+```sh
 docker login
 ```
-- ## AWS Account:
-Get AWS CLI installed
-Run below Command to configure your AWS account on your local machine  
-  
-```
+
+#### AWS Account
+
+Install the AWS CLI and configure your AWS credentials:
+
+```sh
 aws configure
 ```
-- ## Github Account:
-clone your repo to your local machine
-```
+
+#### GitHub Account
+
+Clone your repository and the project to your local machine:
+
+```sh
 git clone git/your/repo
-clone this project
 git clone git@github.com:zahid-mahmood-devops/Automation_Terraform_Ansible.git
 ```
-  
-- ## Docker Images:
-now copy the docker files from this repo to your front-end and back-end projects respectively
 
-```
+#### Docker Images
+
+Copy the Docker files to your projects and modify them according to your needs:
+
+```sh
 cp Dockerfile-frontend /path/to/your/frontend/project/Dockerfile
-```
-```
 cp Dockerfile-backend /path/to/your/backend/project/Dockerfile
-```  
-```
 cp docker-compose.yml /path/to/your/project/
-```
-  
-```
 cp deploy.sh /path/to/your/project/
 ```
-  
-Now modify these docker and docker-compose file according to your project  
-once done run the below commannd to run the deploy script that will create the images of your projects and tag them to push in your docker hub repo  
-   
-```
+
+Run the deployment script to build and push the images to Docker Hub:
+
+```sh
 ./deploy.sh
 ```
-Above script will build and create the images for your project and will push these images to your docker-hub account configured earlier  
-Once these are done now go back to the terraform directory  
 
-## Terraform Configuration:
- After installing the terraform if you want to create a new VPC along with three subnets in different availability zones then follow the below instructions or else skip to the next step.
- 
-  1- Create VPC  
-  
-    cd /Automation_Terraform_Ansible/terraform/vpc_module  
-    terraform init  
-    terraform fmt
-    terraform validate
-    terraform plan #this will show you the architecture that will be created by terraform
-    terraform apply # type "yes" once it shows the architecture  
-    
-Now copy the subnet and vpc details from the output of the terraform apply copmmand.  
+#### Terraform Configuration
 
-  2- Create Two EC2 linux hosts and security group
-  cd ../ec2_module.  
-  
-You can adjust the main.tf to add or remove the required ports in secuirity group creation section
-Now add the VPC and subnet details copied from the above output and if you have skipped the above step you can copy and paste the default VPC and default subnet details from your AWS account in variable.tf file in ec2_module folder
-you can use editors like "nano"  or "vim" to edit the variable. tf file and run below commands.  
-  
-  Note: Please add the name of your key file from your AWS to the main.tf in my case it is "Test.pem" so it is in file key_name = "Test"  
+To create a new VPC with subnets:
 
+```sh
+cd /Automation_Terraform_Ansible/terraform/vpc_module  
+terraform init  
+terraform fmt  
+terraform validate  
+terraform plan  
+terraform apply  # Confirm with "yes"
 ```
+
+Capture the output details for subnet and VPC.
+
+To create EC2 instances and a security group:
+
+```sh
+cd ../ec2_module
+# Edit variable.tf with your VPC and subnet details
 terraform init
 terraform fmt 
 terraform validate
-terraform plan #this will show you the architecture that is gonna be created by terraform
-terraform apply # type "yes" once it shows the architecture
+terraform plan
+terraform apply  # Confirm with "yes"
 ```
-After running above commands you will see terraform creating the two EC2 linux hosts and a secuirity group with allowed ports
-Now copy the both instances ip's from the output of the previous command and switch to the ansible directory and edit the hosts files.  
-  
-## Ansible Configuration:
-In this we will configure both hosts respectively
-```
-cd ../../ansible && vim hosts
-```
-#Add the both IP's in the respective fields the one for DB-Instance and other for App instance  
-Once Ansible is Installed and IP's are added follow the below steps.  
 
-Note: Add the key file location of your SSH key file in install_docker.yml file  
-create Ansible vault for docker hub credentials and add the docker hub creddentials in it  
+#### Ansible Configuration
+
+Configure hosts with the IP addresses obtained from Terraform:
+
+```sh
+cd ../../ansible
+vim hosts  # Add IPs for the DB and App instances
 ```
+
+Set up the Ansible vault for Docker Hub credentials:
+
+```sh
 ansible-vault create docker_hub_credentials.yml
 ```
-Now when you have added the IP's in the hosts file and added docker-hub credentials in it let's run the playbooks now
-```
+
+Run the playbooks to configure the servers:
+
+```sh
 ansible-playbook install_docker.yml --ask-vault-pass -i hosts
-```
-Now you will see that serveral plays are being running and these will install docker and docker-compose in both servers and other services both the servers.  
-Configure the app server to fetch and run the application  
-```
 ansible-playbook deploy_app.yml --ask-vault-pass -i hosts
-```
-And for DB run the below  
-```
 ansible-playbook deploy_db.yml --ask-vault-pass -i hosts
 ```
-Once all plays are running successfully copy and paste the App server IP in your browser to test you application
+
+Access the application by entering the App server IP in your browser.
 
 ## Troubleshooting
 
-Common issues and their solutions.
+Refer to this section for common issues and their solutions.
 
 ## Contributing
 
-Information on how to contribute to this project or report issues.
+Guidelines for contributing to this project and reporting issues.
 
 ## License
 
-Specify the project's license and any terms and conditions.
+This project is licensed under [INSERT LICENSE HERE], which details the terms and conditions of use.
 
-Feel free to expand on each section with detailed explanations, code examples, and any other relevant information to make your documentation comprehensive and user-friendly. Remember to keep your README.md up to date as your project evolves.
+---
+
+### Additional Notes for the README Author:
+
+Your documentation draft provides a solid foundation for your README file. However, professional documentation should maintain consistency in format and style. Consider the following enhancements:
+
+- Utilize markdown features for better readability, such as tables, bullet points, and code blocks.
+- Define ac
+
+ronyms on first use. For instance, explain what IAC stands for before using the acronym.
+- Include a table of contents for easy navigation if the document becomes lengthy.
+- Be concise and clear in your descriptions. Avoid overly complex sentences.
+- Keep a professional tone and avoid colloquial language.
+- Incorporate a 'Getting Help' section for users to know where to seek assistance.
+- Update diagrams and images to high quality and ensure they are hosted in a reliable location to prevent broken links.
+- Ensure code blocks and commands are tested and work as expected.
+
+By following these recommendations and structuring your document neatly, you will have a professional and polished README that effectively communicates the project setup and usage to your audience.
