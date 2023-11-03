@@ -48,16 +48,24 @@ Start with:
 
 - ## Docker Hub account:
     Add your docker hub account to use this in future if not create a new
-      docker login
+  
+  ```
+  docker login
+  ```
 - ## AWS Account:
 Get AWS CLI installed
-Run below Command to configure your AWS account on your local machine
-  aws configure
+Run below Command to configure your AWS account on your local machine  
+  
+  ```
+aws configure
+```
 - ## Github Account:
   clone your repo to your local machine
+  ```
   git clone git/your/repo
   clone this project
-   git clone git@github.com:zahid-mahmood-devops/Automation_Terraform_Ansible.git
+  git clone git@github.com:zahid-mahmood-devops/Automation_Terraform_Ansible.git
+  ```
   
 - ## Docker Images:
    now copy the docker files from this repo to your front-end and back-end projects respectively
