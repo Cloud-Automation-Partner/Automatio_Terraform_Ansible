@@ -47,28 +47,28 @@ In this project, we are embarking on the migration of our Ruby on Rails, Vue.js,
 Start with:
 
 - ## Docker Hub account:
-    Add your docker hub account to use this in future if not create a new
+Add your docker hub account to use this in future if not create a new
   
-  ```
-  docker login
-  ```
+```
+docker login
+```
 - ## AWS Account:
 Get AWS CLI installed
 Run below Command to configure your AWS account on your local machine  
   
-  ```
+```
 aws configure
 ```
 - ## Github Account:
-  clone your repo to your local machine
-  ```
-  git clone git/your/repo
-  clone this project
-  git clone git@github.com:zahid-mahmood-devops/Automation_Terraform_Ansible.git
-  ```
+clone your repo to your local machine
+```
+git clone git/your/repo
+clone this project
+git clone git@github.com:zahid-mahmood-devops/Automation_Terraform_Ansible.git
+```
   
 - ## Docker Images:
-   now copy the docker files from this repo to your front-end and back-end projects respectively
+now copy the docker files from this repo to your front-end and back-end projects respectively
 
 ```
 cp Dockerfile-frontend /path/to/your/frontend/project/Dockerfile
@@ -84,11 +84,15 @@ cp docker-compose.yml /path/to/your/project/
 cp deploy.sh /path/to/your/project/
 ```
   
-Now modify these docker and docker-compose file according to your project
-once done run the below commannd to run the deploy script that will create the images of your projects and tag them to push in your docker hub repo
-  ./deploy.sh
-Above script will build and create the images for your project and will push these images to your docker-hub account configured earlier
-Once these are done now go back to the terraform directory 
+Now modify these docker and docker-compose file according to your project  
+once done run the below commannd to run the deploy script that will create the images of your projects and tag them to push in your docker hub repo  
+   
+```
+./deploy.sh
+```
+Above script will build and create the images for your project and will push these images to your docker-hub account configured earlier  
+Once these are done now go back to the terraform directory  
+
 - ## Terraform:
  After installing the terraform if you want to create a new VPC along with three subnets in different availability zones then follow the below instructions or else skip to the next step.
  
