@@ -19,11 +19,11 @@ docker tag timebot_sidekiq:latest zahidmahmood1995/timebot-be:sidekiq
 docker push zahidmahmood1995/timebot-be:sidekiq
 
 echo "Tagging and pushing timebot_web..."
-docker tag timebot_web:latest zahidmahmood1995/timebot-be:web
+docker tag timebot-be_web:latest zahidmahmood1995/timebot-be:web
 docker push zahidmahmood1995/timebot-be:web
 
 echo "Tagging and pushing timebot_frontend-prod..."
-docker tag timebot_frontend-prod:latest zahidmahmood1995/timebot-be:frontend
+docker tag timebot-be_frontend-prod:latest zahidmahmood1995/timebot-be:frontend
 docker push zahidmahmood1995/timebot-be:frontend
 
 echo "Deployment script finished."
