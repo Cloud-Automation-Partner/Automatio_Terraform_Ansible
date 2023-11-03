@@ -5,14 +5,18 @@
 This README provides comprehensive documentation for an Infrastructure as Code (IAC) project that leverages Terraform and Ansible to create, configure, and deploy an AWS infrastructure, including a Virtual Private Cloud (VPC) and EC2 instances. Additionally, it details the process of migrating an existing Rails and Vue.js application running on a simple server to the IAC-based infrastructure using Terraform and Ansible, with Docker as the containerization solution.
 
 ## Project Overview
-Current architecture before transformation  
+Current architecture before transformation   
+
 ![image_2023_10_23T12_19_49_613Z](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/c1169a7c-5985-49ef-810c-c9c99d0b66d9)
 
 
 ### Infrastructure Provisioning
 - **Terraform**: The infrastructure provisioning phase utilizes Terraform to define and create the AWS resources. We automate the creation of a VPC, EC2 instances, and other necessary components.
 
-###AWS Infrastructure:   
+### AWS Infrastructure:  
+
+Below Infratructure will be created in the AWS using the Terraform  
+
 ![Final Diagram](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/f06a9145-865d-4085-9acd-e1e54d125471)
 
 ### Application Deployment
