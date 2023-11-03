@@ -43,7 +43,8 @@ Before you begin, ensure you have the following prerequisites in place:
 
 ## Project Structure
 In this project, we are embarking on the migration of our Ruby on Rails, Vue.js, Redis, PostgreSQL-based application to AWS. To achieve this, we will employ Terraform to define our infrastructure as code. Configuration management will be handled using Ansible, which will facilitate the installation of Docker Compose and the configuration of the application by pulling it from GitHub
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+![image_2023_10_23T12_18_27_969Z](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/208f76f9-b475-4216-b516-b4848945077a)  
+
 Start with:
 
 - ## Docker Hub account:
@@ -93,7 +94,7 @@ once done run the below commannd to run the deploy script that will create the i
 Above script will build and create the images for your project and will push these images to your docker-hub account configured earlier  
 Once these are done now go back to the terraform directory  
 
-- ## Terraform:
+## Terraform Configuration:
  After installing the terraform if you want to create a new VPC along with three subnets in different availability zones then follow the below instructions or else skip to the next step.
  
   1- Create VPC  
@@ -126,7 +127,7 @@ terraform apply # type "yes" once it shows the architecture
 After running above commands you will see terraform creating the two EC2 linux hosts and a secuirity group with allowed ports
 Now copy the both instances ip's from the output of the previous command and switch to the ansible directory and edit the hosts files.  
   
-- ## Ansible:
+## Ansible Configuration:
 In this we will configure both hosts respectively
 ```
 cd ../../ansible && vim hosts
@@ -153,38 +154,6 @@ And for DB run the below
 ansible-playbook deploy_db.yml --ask-vault-pass -i hosts
 ```
 Once all plays are running successfully copy and paste the App server IP in your browser to test you application
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-## Terraform Configuration
-
-Detail the Terraform configuration, including files, variables, and specific settings.
-
-### Terraform Files
-
-Explain the purpose of each Terraform configuration file and how they interact.
-
-## Ansible Configuration
-
-Discuss the Ansible setup, including playbooks, inventory files, and any specific configurations.
-
-### Ansible Playbooks
-
-Explain the purpose of each Ansible playbook and how they facilitate the Docker and application setup.
-
-## Deploying the Infrastructure
-
-Step-by-step instructions for deploying the AWS infrastructure using Terraform.
-![image_2023_10_23T12_18_27_969Z](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/208f76f9-b475-4216-b516-b4848945077a)
-
-
-## Migrating the Application
-
-Instructions for migrating your existing Rails and Vue.js application to the IAC-based infrastructure. Include any data migration steps if applicable.
-
-## Running the Application
-
-Guidance on how to run the Rails and Vue.js application within Docker containers on the new infrastructure.
 
 ## Troubleshooting
 
