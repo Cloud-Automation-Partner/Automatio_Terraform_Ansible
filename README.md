@@ -110,40 +110,48 @@ Now copy the subnet and vpc details from the output of the terraform apply copmm
   2- Create Two EC2 linux hosts and security group
   cd ../ec2_module.  
   
-  You can adjust the main.tf to add or remove the required ports in secuirity group creation section
-  Now add the VPC and subnet details copied from the above output and if you have skipped the above step you can copy and paste the default VPC and default subnet details from your AWS account in variable.tf file in ec2_module folder
-  you can use editors like "nano"  or "vim" to edit the variable. tf file and run below commands.  
+You can adjust the main.tf to add or remove the required ports in secuirity group creation section
+Now add the VPC and subnet details copied from the above output and if you have skipped the above step you can copy and paste the default VPC and default subnet details from your AWS account in variable.tf file in ec2_module folder
+you can use editors like "nano"  or "vim" to edit the variable. tf file and run below commands.  
   
-  Note: PLease add the name of your key file from your AWS to the main.tf in my case it is "Test.pem" so it is in file key_name      = "Test"  
-  
-    terraform init
-    terraform fmt
-    terraform validate
-    terraform plan #this will show you the architecture that is gonna be created by terraform
-    terraform apply # type "yes" once it shows the architecture  
-  After running above commands you will see terraform creating the two EC2 linux hosts and a secuirity group with allowed ports
-  Now copy the both instances ip's from the output of the previous command and switch to the ansible directory and edit the hosts files.  
+  Note: Please add the name of your key file from your AWS to the main.tf in my case it is "Test.pem" so it is in file key_name = "Test"  
+
+```
+terraform init
+terraform fmt 
+terraform validate
+terraform plan #this will show you the architecture that is gonna be created by terraform
+terraform apply # type "yes" once it shows the architecture
+```
+After running above commands you will see terraform creating the two EC2 linux hosts and a secuirity group with allowed ports
+Now copy the both instances ip's from the output of the previous command and switch to the ansible directory and edit the hosts files.  
   
 - ## Ansible:
-  In this we will configure both hosts respectively
-  cd ../../ansible vim hosts.
-  #Add the both IP's in the respective fields the one for DB-Instance and other for App instance
-Once Ansible is Installed and IP's are added follow the below steps.
+In this we will configure both hosts respectively
+```
+cd ../../ansible && vim hosts
+```
+#Add the both IP's in the respective fields the one for DB-Instance and other for App instance  
+Once Ansible is Installed and IP's are added follow the below steps.  
 
-Note: Add the key file location of your SSH key file in install_docker.yml file
-create Ansible vault for docker hub credentials and add the docker hub creddentials in it
-  ansible-vault create docker_hub_credentials.yml.  
-  
+Note: Add the key file location of your SSH key file in install_docker.yml file  
+create Ansible vault for docker hub credentials and add the docker hub creddentials in it  
+```
+ansible-vault create docker_hub_credentials.yml
+```
 Now when you have added the IP's in the hosts file and added docker-hub credentials in it let's run the playbooks now
-  ansible-playbook install_docker.yml --ask-vault-pass -i hosts
+```
+ansible-playbook install_docker.yml --ask-vault-pass -i hosts
+```
 Now you will see that serveral plays are being running and these will install docker and docker-compose in both servers and other services both the servers.  
-
-Configure the app server to fetch and run the application
-  ansible-playbook deploy_app.yml --ask-vault-pass -i hosts
-And for DB run the below
-  ansible-playbook deploy_db.yml --ask-vault-pass -i hosts
-
-
+Configure the app server to fetch and run the application  
+```
+ansible-playbook deploy_app.yml --ask-vault-pass -i hosts
+```
+And for DB run the below  
+```
+ansible-playbook deploy_db.yml --ask-vault-pass -i hosts
+```
 Once all plays are running successfully copy and paste the App server IP in your browser to test you application
 
 
