@@ -49,7 +49,7 @@ Please visit the link for installing Docker and Docker-Compose on AL2 OS. [Insta
 
 #### Docker Hub Account  
 
-Check Docker and Docker-Compose Installation  
+Verify the Installation  
 
 ```sh
 docker -v
@@ -179,7 +179,7 @@ Run the playbooks to configure the servers:
 ```sh
 ansible-playbook install_docker.yml --ask-vault-pass -i hosts
 ```
-Now copy the Docker-Compose files for DB and App on a location and copy that location in the playbook files respectively  
+Now copy the Docker-Compose files for DB and App on a location and add that location in the playbook files respectively
 
 ```sh
 ansible-playbook deploy_app.yml --ask-vault-pass -i hosts
