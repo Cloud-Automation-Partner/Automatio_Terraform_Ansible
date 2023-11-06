@@ -45,8 +45,7 @@ We will migrate a Rails, Vue.js, Redis, and PostgreSQL application to AWS, using
 
 #### Install Docker:
 
-Please visit the followinng link for installing Docker and Docker-Compose on AL2 OS.
-[Installing Docker](https://gist.github.com/npearce/6f3c7826c7499587f00957fee62f8ee9)
+Please visit the link for installing Docker and Docker-Compose on AL2 OS. [Installing Docker](https://gist.github.com/npearce/6f3c7826c7499587f00957fee62f8ee9)
 
 #### Docker Hub Account  
 
@@ -119,7 +118,9 @@ terraform plan
 terraform apply  # Confirm with "yes"
 ```
 
-Capture the output details for subnet and VPC.
+Capture the output details for subnet and VPC.  
+
+<img width="679" alt="Screenshot 2023-10-19 at 10 15 25 AM" src="https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/147611434/8f57c4a6-ac39-445f-a420-0f378fd4e449">
 
 To create EC2 instances and a security group:
 
@@ -134,6 +135,7 @@ terraform apply  # Confirm with "yes"
 ```
 
 #### Ansible Configuration
+<img width="734" alt="Screenshot 2023-10-19 at 1 36 06 PM" src="https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/147611434/92a249fa-1de2-4647-86ef-de959287fbde">
 
 Configure hosts with the IP addresses obtained from Terraform:
 
