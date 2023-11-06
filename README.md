@@ -6,7 +6,7 @@ This README serves as a comprehensive guide for an Infrastructure as Code (IAC) 
 
 ### Current Architecture Before Transformation
 
-![Current Architecture](assets/148323748/c1169a7c-5985-49ef-810c-c9c99d0b66d9)
+![image_2023_10_23T12_19_49_613Z](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/c1169a7c-5985-49ef-810c-c9c99d0b66d9)
 
 ## Infrastructure Provisioning
 
@@ -14,7 +14,7 @@ This README serves as a comprehensive guide for an Infrastructure as Code (IAC) 
 
 ### AWS Infrastructure to be created:
 
-![Final AWS Diagram](assets/148323748/f06a9145-865d-4085-9acd-e1e54d125471)
+![Final Diagram](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/f06a9145-865d-4085-9acd-e1e54d125471)
 
 ## Application Deployment
 
