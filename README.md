@@ -43,7 +43,21 @@ We will migrate a Rails, Vue.js, Redis, and PostgreSQL application to AWS, using
 
 ### Getting Started
 
-#### Docker Hub Account
+#### Install Docker:
+
+Please visit the followinng link for installing Docker and Docker-Compose on AL2 OS.
+[Installing Docker](https://gist.github.com/npearce/6f3c7826c7499587f00957fee62f8ee9)
+
+#### Docker Hub Account  
+
+Check Docker and Docker-Compose Installation  
+
+```sh
+docker -v
+```
+```sh
+docker-compose -v
+```
 
 Ensure your Docker Hub account is ready. Login with:
 
@@ -51,16 +65,23 @@ Ensure your Docker Hub account is ready. Login with:
 docker login
 ```
 
-#### AWS Account
+#### Install AWS CLI & Login AWS Account
 
-Install the AWS CLI and configure your AWS credentials:
-
+```sh
+sudo yum Install awscli -y
+```
 ```sh
 aws configure
 ```
 
-#### GitHub Account
+####  Install Git & Configure GitHub Account  
 
+```sh
+sudo yum Install git -y
+```
+```sh
+git --version
+```
 Clone your repository and the project to your local machine:
 
 ```sh
