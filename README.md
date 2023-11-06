@@ -144,10 +144,24 @@ terraform plan
 terraform apply  # Confirm with "yes"
 ```
 
-#### Ansible Configuration
-<img width="734" alt="Screenshot 2023-10-19 at 1 36 06 PM" src="https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/147611434/92a249fa-1de2-4647-86ef-de959287fbde">
+#### Ansible Installation & Configuration  
 
-Configure hosts with the IP addresses obtained from Terraform:
+```sh
+sudo yum update -y
+```
+```sh
+sudo amazon-linux-extras install epel -y
+```
+```sh
+sudo yum install ansible -y
+```
+```sh
+ansible --version
+```
+
+Configure hosts with the IP addresses obtained from Terraform:  
+
+<img width="734" alt="Screenshot 2023-10-19 at 1 36 06 PM" src="https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/147611434/92a249fa-1de2-4647-86ef-de959287fbde">
 
 ```sh
 cd ../../ansible
@@ -164,7 +178,13 @@ Run the playbooks to configure the servers:
 
 ```sh
 ansible-playbook install_docker.yml --ask-vault-pass -i hosts
+```
+Now copy the Docker-Compose files for DB and App on a location and copy that location in the playbook files respectively  
+
+```sh
 ansible-playbook deploy_app.yml --ask-vault-pass -i hosts
+```
+```sh
 ansible-playbook deploy_db.yml --ask-vault-pass -i hosts
 ```
 
