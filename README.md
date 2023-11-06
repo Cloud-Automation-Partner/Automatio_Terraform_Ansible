@@ -39,7 +39,7 @@ To proceed with this project, you should have:
 
 We will migrate a Rails, Vue.js, Redis, and PostgreSQL application to AWS, using Terraform for infrastructure definition and Ansible for configuration management. Docker Compose will be used to set up and configure the application.
 
-![Project Structure](assets/148323748/208f76f9-b475-4216-b516-b4848945077a)
+![image_2023_10_23T12_18_27_969Z](https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/208f76f9-b475-4216-b516-b4848945077a)
 
 ### Getting Started
 
