@@ -112,7 +112,7 @@ Run the deployment script to build and push the images to Docker Hub:
 Please follow the documetation for installing the Terraform on your local machine which in my case is amazon linnux 2. ([Installation Guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli))  
 Verify the installation by running  
 ```sh
-terraform -v
+terraform -help
 ```
      
 ##### Terraform Configuration
