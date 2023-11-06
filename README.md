@@ -14,7 +14,7 @@ This README serves as a comprehensive guide for an Infrastructure as Code (IAC) 
 
 ### AWS Infrastructure to be created:
 
-<img width="700" src="https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/f06a9145-865d-4085-9acd-e1e54d125471">
+<img width="800" src="https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/f06a9145-865d-4085-9acd-e1e54d125471">
 
 ## Application Deployment
 
