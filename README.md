@@ -150,20 +150,3 @@ Guidelines for contributing to this project and reporting issues.
 This project is licensed under [INSERT LICENSE HERE], which details the terms and conditions of use.
 
 ---
-
-### Additional Notes for the README Author:
-
-Your documentation draft provides a solid foundation for your README file. However, professional documentation should maintain consistency in format and style. Consider the following enhancements:
-
-- Utilize markdown features for better readability, such as tables, bullet points, and code blocks.
-- Define ac
-
-ronyms on first use. For instance, explain what IAC stands for before using the acronym.
-- Include a table of contents for easy navigation if the document becomes lengthy.
-- Be concise and clear in your descriptions. Avoid overly complex sentences.
-- Keep a professional tone and avoid colloquial language.
-- Incorporate a 'Getting Help' section for users to know where to seek assistance.
-- Update diagrams and images to high quality and ensure they are hosted in a reliable location to prevent broken links.
-- Ensure code blocks and commands are tested and work as expected.
-
-By following these recommendations and structuring your document neatly, you will have a professional and polished README that effectively communicates the project setup and usage to your audience.
