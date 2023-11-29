@@ -6,7 +6,8 @@ This README serves as a comprehensive guide for an Infrastructure as Code (IAC) 
 
 ### Current Architecture Before Transformation
 
-<img width="800" src="https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/c1169a7c-5985-49ef-810c-c9c99d0b66d9">
+<img width="800" src="https://github.com/Cloud-Automation-Partner/Automatio_Terraform_Ansible/assets/151637997/4e8209cf-4b36-439c-b3ef-68f702db4c9f">
+
 
 ## Infrastructure Provisioning
 
@@ -14,7 +15,8 @@ This README serves as a comprehensive guide for an Infrastructure as Code (IAC) 
 
 ### AWS Infrastructure to be created:
 
-<img width="800" src="https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/f06a9145-865d-4085-9acd-e1e54d125471">
+<img width="800" src="https://github.com/Cloud-Automation-Partner/Automatio_Terraform_Ansible/assets/151637997/5c0f42e7-224a-49b8-943d-72ce826fce37">
+
 
 ## Application Deployment
 
@@ -39,7 +41,7 @@ To proceed with this project, you should have:
 
 We will migrate a Rails, Vue.js, Redis, and PostgreSQL application to AWS, using Terraform for infrastructure definition and Ansible for configuration management. Docker Compose will be used to set up and configure the application.
 
-<img width="800" src="https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/148323748/208f76f9-b475-4216-b516-b4848945077a">
+<img width="800" src="https://github.com/Cloud-Automation-Partner/Automatio_Terraform_Ansible/assets/151637997/a99169b5-1f46-4902-bdca-3711c066ecac">
 
 ### Getting Started
 
@@ -130,7 +132,7 @@ terraform apply  # Confirm with "yes"
 
 Capture the output details for subnet and VPC.  
 
-<img width="679" alt="Screenshot 2023-10-19 at 10 15 25 AM" src="https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/147611434/8f57c4a6-ac39-445f-a420-0f378fd4e449">
+<img width="679" alt="Screenshot 2023-10-19 at 10 15 25 AM" src="https://github.com/Cloud-Automation-Partner/Automatio_Terraform_Ansible/assets/151637997/ea658b2e-254d-4562-bd1e-9f8b04457c28">
 
 To create EC2 instances and a security group:
 
@@ -161,7 +163,7 @@ ansible --version
 
 Configure hosts with the IP addresses obtained from Terraform:  
 
-<img width="734" alt="Screenshot 2023-10-19 at 1 36 06 PM" src="https://github.com/zahid-mahmood-devops/Automation_Terraform_Ansible/assets/147611434/92a249fa-1de2-4647-86ef-de959287fbde">
+<img width="734" alt="Screenshot 2023-10-19 at 1 36 06 PM" src="https://github.com/Cloud-Automation-Partner/Automatio_Terraform_Ansible/assets/151637997/369a348b-ae25-42e3-aa5a-97c854dea053">
 
 ```sh
 cd ../../ansible
